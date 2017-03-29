@@ -1,4 +1,5 @@
 const { resolve } = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
     entry: [
@@ -49,5 +50,15 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'cnode',
+            filename: '../dist/index.html',
+            template: 'index.html',
+            favicon: 'favicon.ico',
+            minify: {
+                removeComments: false,
+                collapseWhitespace: true
+            }
+        })
     ]
 }
