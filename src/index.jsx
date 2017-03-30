@@ -1,26 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
 import './style/sass/mobile.scss'
+import configureStore from './redux/store/configureStore.jsx'
+import Wrap from './components/Wrap.jsx'
 
-import { AppContainer } from 'react-hot-loader'
-import App from './components/App.jsx'
-
+const store = configureStore({});
 
 const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
-            <Component />
+            <Component store={store}></Component>
         </AppContainer>,
         document.getElementById('root')
     )
 }
 
-render(App)
+render(Wrap)
+
 
 if (module.hot) {
-    module.hot.accept('./components/App.jsx', () => {
+    module.hot.accept('./components/Wrap.jsx', () => {
         console.log("reload")
-        render(App)
+        const Wrap = require('./components/Wrap.jsx')
+        render(Wrap)
     })
 } 

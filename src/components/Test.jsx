@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getCnodeList } from '../redux/actions/cnode'
 
 class Child extends React.Component {
     constructor(props) {
@@ -19,12 +21,10 @@ class Child extends React.Component {
     }
 }
 
-export default class Parent extends React.Component {
-    state = {
-        name: 'xxx'
-    }
-
+class Parent extends React.Component {
     render() {
+        const { getCnodeList } = this.props
+        getCnodeList()
         return (
             <div>
                 <Child text={this.state.name} />
@@ -34,3 +34,7 @@ export default class Parent extends React.Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return state.rootReducer.cnodeTopics
+}
+export default connect(mapStateToProps, { getCnodeList })(Parent)
