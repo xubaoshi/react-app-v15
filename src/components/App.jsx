@@ -7,7 +7,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <h2 className="orange">Hello ,React11!</h2>
-                <Link to="/test">Test</Link>
+                <Link to="/topic/list">Test</Link>
                 {this.props.children}
             </div>
         )
