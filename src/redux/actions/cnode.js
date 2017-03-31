@@ -13,7 +13,7 @@ export function listCnode() {
 export function getCnodeList(param) {
     return dispatch => {
         dispatch(listCnode())
-        const url = ' https://cnodejs.org/api/v1/topics?page=1&limit=20'
+        const url = ' https://cnodejs.org/api/v1/topics'
         fetch(url).then(function (response) {
             return response.json()
         }).then(function (json) {

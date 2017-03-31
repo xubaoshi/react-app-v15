@@ -3,12 +3,12 @@ import {Route, IndexRoute } from 'react-router'
 
 import App from './components/App.jsx'
 import Test from './components/Test.jsx'
-import Test from './components/cnode/TopicListWrap'
+import TopicListWrap from './components/cnode/TopicListWrap'
 
 export default (
     <Route name="app" path="/" component={App}>
         <IndexRoute component={App}></IndexRoute>
         <Route path="/test" component={Test}></Route>
-        <Route path="/topic/list" component={Test}></Route>
+        <Route path="/topic/list" component={TopicListWrap}></Route>
     </Route>
 ) 

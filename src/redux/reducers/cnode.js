@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import * as constant from '../constant/cnode'
 
-const cnodeTopics = (
+const list = (
     state = { isFetching: false, topics: [] },
     action
 ) => {
@@ -26,7 +26,7 @@ const cnodeTopics = (
 }
 
 const cnodeReducer = combineReducers({
-    cnodeTopics
+    list
 })
 
 export default cnodeReducer
