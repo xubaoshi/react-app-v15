@@ -9,7 +9,7 @@ export default class Topic extends React.Component {
                     <div className="data-hd">
                         <h4>{topic.title}</h4>
                     </div>
-                    <div class="data-bd">
+                    <div className="data-bd">
                         <p className="data-vertical">作者：{topic.author.loginname}</p>
                         <p className="data-vertical">发布日期：{topic.create_at}</p>
                         <p className="data-vertical">访问量:{topic.visit_count}</p>

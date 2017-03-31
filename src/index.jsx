@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import './style/sass/mobile.scss'
 import configureStore from './redux/store/configureStore.jsx'
-import Wrap from './components/Wrap.jsx'
+import Container from './components/Container.jsx'
 
 const store = configureStore({});
 
@@ -17,13 +17,13 @@ const render = (Component) => {
     )
 }
 
-render(Wrap)
+render(Container)
 
 
 if (module.hot) {
-    module.hot.accept('./components/Wrap.jsx', () => {
+    module.hot.accept('./components/Container.jsx', () => {
         console.log("reload")
-        const Wrap = require('./components/Wrap.jsx')
-        render(Wrap)
+        const Container = require('./components/Container.jsx')
+        render(Container)
     })
 } 

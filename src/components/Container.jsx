@@ -5,7 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 
 import Routes from '../routes.jsx'
 
-export default class Wrap extends React.Component {
+export default class Container extends React.Component {
     render() {
         const { store } = this.props
         const history = syncHistoryWithStore(browserHistory, store);
