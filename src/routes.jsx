@@ -9,6 +9,6 @@ export default (
         {/*<IndexRoute component={TopicListContainer}>
 
         </IndexRoute>*/}
-        <Route path="/topics/:tab" component={TopicListContainer}></Route>
+        <Route path="/:tab" component={TopicListContainer}></Route>
     </Route>
 ) 
