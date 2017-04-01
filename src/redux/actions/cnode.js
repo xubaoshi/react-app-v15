@@ -14,7 +14,8 @@ export function getCnodeList(param) {
     return dispatch => {
         dispatch(listCnode())
         const url = ' https://cnodejs.org/api/v1/topics'
-        fetch(url).then(function (response) {
+        var param = Object.assign({}, param, { limit: 20 })
+        fetch(url, param).then(function (response) {
             return response.json()
         }).then(function (json) {
             console.log('parsed json', json)

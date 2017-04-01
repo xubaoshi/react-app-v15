@@ -14,6 +14,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
+        // root: resolve(__dirname, 'node_modules'),
         extensions: [".js", ".jsx", ".json", ".scss"]
     },
     context: resolve(__dirname, '../src'),
@@ -33,17 +34,44 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /\.scss|css$/,
                 use: [{
-                    loader: "style-loader"
+                    loader: 'style-loader'
                 }, {
-                    loader: "css-loader",
+                    loader: 'css-loader',
                     options: { sourceMap: true }
                 }, {
-                    loader: "sass-loader",
+                    loader: 'sass-loader',
                     options: { sourceMap: true }
 
                 }]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'images/[name].[ext]?[hash]'
+                        }
+                    }
+
+                ]
+
+            },
+            {
+                test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'fonts/[name].[ext]?[hash]'
+                        }
+                    }
+                ]
+
             }
         ]
     },

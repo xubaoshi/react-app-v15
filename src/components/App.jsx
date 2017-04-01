@@ -1,14 +1,15 @@
 import React from 'react'
-import Test from './Test'
+import Menu from './layout/Menu.jsx'
+import VHeader from './layout/Header.jsx'
 import { Link } from 'react-router'
 
 export default class App extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="orange">Hello ,React11!</h2>
-                <Link to="/topic/list">TopicListWrap</Link>
+                <VHeader history={false}></VHeader>
                 {this.props.children}
+                <Menu></Menu>
             </div>
         )
     }

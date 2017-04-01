@@ -1,19 +1,33 @@
-//http://redux.js.org/docs/basics/UsageWithReact.html
+import React from 'react'
 import { connect } from 'react-redux'
 import { getCnodeList } from '../../redux/actions/cnode'
 import TopicList from './TopicList.jsx'
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         cnode: state.rootReducer.cnode.list
     }
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
     return {
         getTopics: function () {
-            dispatch(getCnodeList())
+            dispatch(getCnodeList({ tab: ownProps.params.tab }))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicList)
+class TopicListContainer extends React.Component {
+    componentDidMount(a) {
+        const { getTopics } = this.props
+        getTopics()
+    }
+    render() {
+        const { cnode } = this.props
+        return (
+            <TopicList cnode={cnode}></TopicList>
+        )
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopicListContainer)

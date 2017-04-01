@@ -1,4 +1,3 @@
-//http://redux.js.org/docs/basics/UsageWithReact.html
 import React, { PropTypes } from 'react'
 export default class Topic extends React.Component {
     render() {
