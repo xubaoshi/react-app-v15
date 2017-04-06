@@ -13,7 +13,8 @@ const list = (
             })
         case constant.LIST_CNODE_REQUEST_FAILURE:
             return Object.assign({}, state, {
-                isFetching: false
+                isFetching: false,
+                topics:[]
             })
         case constant.LIST_CNODE_REQUEST_BEGIN:
             return Object.assign({}, state, {

@@ -4,15 +4,23 @@ export default class TopicList extends React.Component {
     render() {
         const { cnode, getTopics } = this.props
         var topicsStr = ''
-        topicsStr = cnode.topics && cnode.topics.data && cnode.topics.data.map(topic =>
-            <Topic key={topic.id} topic={topic}></Topic>
-        )
+        if(!cnode.isFetching && cnode.topics && cnode.topics.data){
+            topicsStr = cnode.topics.data.map(topic =>
+                <Topic key={topic.id} topic={topic}></Topic>
+            )
+        }else{
+            topicsStr = '正在搜索...'
+        }
+        
         return (
-            <div className="row">
-                <ul className="data-lst">
-                    {topicsStr}
-                </ul>
+            <div className="content-with-menu">
+                <div className="row">
+                    <ul className="data-lst">
+                        {topicsStr}
+                    </ul>
+                </div>
             </div>
+            
         )
     }
 }

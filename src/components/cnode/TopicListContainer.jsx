@@ -21,6 +21,12 @@ class TopicListContainer extends React.Component {
         const { getTopics } = this.props
         getTopics()
     }
+    componentWillReceiveProps(nextProps){
+        const{ getTopics} = this.props
+        if(this.props.params.tab != nextProps.params.tab){
+            getTopics()
+        }
+    }
     render() {
         const { cnode } = this.props
         return (
