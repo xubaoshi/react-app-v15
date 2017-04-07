@@ -8,7 +8,12 @@ import Routes from '../routes.jsx'
 export default class Container extends React.Component {
     render() {
         const { store } = this.props
-        const history = syncHistoryWithStore(browserHistory, store);
+        const history = syncHistoryWithStore(browserHistory, store, {
+            selectLocationState(state) {
+                return state.get('routing').toObject()
+            }
+        })
+
         return (
             <Provider store={store}>
                 <Router children={Routes} history={history}></Router>

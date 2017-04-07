@@ -5,7 +5,7 @@ import TopicList from './TopicList.jsx'
 
 function mapStateToProps(state, ownProps) {
     return {
-        cnode: state.rootReducer.cnode.list
+        cnode: state.get('rootReducer').get('cnode')['list']
     }
 }
 function mapDispatchToProps(dispatch, ownProps) {
@@ -21,9 +21,9 @@ class TopicListContainer extends React.Component {
         const { getTopics } = this.props
         getTopics()
     }
-    componentWillReceiveProps(nextProps){
-        const{ getTopics} = this.props
-        if(this.props.params.tab != nextProps.params.tab){
+    componentWillReceiveProps(nextProps) {
+        const { getTopics } = this.props
+        if (this.props.params.tab != nextProps.params.tab) {
             getTopics()
         }
     }
