@@ -1,17 +1,16 @@
 import React, { PropTypes } from 'react'
 import Topic from './Topic'
+import LoadMore from '../base/load_more'
 export default class TopicList extends React.Component {
     render() {
         const { cnode, getTopics } = this.props
         var topicsStr = ''
-        if(!cnode.isFetching && cnode.topics && cnode.topics.data){
-            topicsStr = cnode.topics.data.map(topic =>
-                <Topic key={topic.id} topic={topic}></Topic>
+        if (cnode.get('topics')) {
+            topicsStr = cnode.get('topics').map(topic =>
+                <Topic key={topic.id + new Date().getTime()} topic={topic}></Topic>
             )
-        }else{
-            topicsStr = '正在搜索...'
         }
-        
+        const loadMoreStyle = cnode.isFetching ? { display: 'none' } : { display: 'block' }
         return (
             <div className="content-with-menu">
                 <div className="row">
@@ -19,8 +18,9 @@ export default class TopicList extends React.Component {
                         {topicsStr}
                     </ul>
                 </div>
+                <LoadMore style={loadMoreStyle}></LoadMore>
             </div>
-            
+
         )
     }
 }
