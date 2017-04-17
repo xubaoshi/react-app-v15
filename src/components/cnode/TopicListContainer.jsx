@@ -27,11 +27,11 @@ class TopicListContainer extends React.Component {
     onScrollHandle() {
         const { getTopics, cnode } = this.props
         let currentDistance = getCurrentDistance(this.scrollParent)
+        console.log(currentDistance)
         if (currentDistance == 0 && !cnode.isFetching) {
             this.pageIndex += 1
             getTopics({ page: this.pageIndex })
         }
-
     }
     componentDidMount(a) {
         const { getTopics } = this.props

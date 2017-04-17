@@ -10,16 +10,19 @@ export default class TopicList extends React.Component {
                 <Topic key={topic.id + new Date().getTime()} topic={topic}></Topic>
             )
         }
-        const loadMoreStyle = cnode.isFetching ? { display: 'none' } : { display: 'block' }
         return (
-            <div className="content-with-menu">
-                <div className="row">
-                    <ul className="data-lst">
-                        {topicsStr}
-                    </ul>
+            <div>
+                <div className="content-with-menu">
+                    <div className="row">
+                        <ul className="data-lst">
+                            {topicsStr}
+                        </ul>
+                    </div>
+                    <LoadMore isShow={cnode.get('isFetching')}></LoadMore>
                 </div>
-                <LoadMore style={loadMoreStyle}></LoadMore>
+               
             </div>
+            
 
         )
     }
